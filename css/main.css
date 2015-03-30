@@ -8,33 +8,29 @@
 		-webkit-backface-visibility
 */
 
+.front, .back {
+	transition: -webkit-transform 1s;
+	-webkit-transform-style: preserve-3d;
+	-webkit-backface-visibility: hidden;
+}
+
 .front {
-	position: relative;
-	margin: 0px;
-	top: 0px;
-	left: 0px;
-	transition: 0.5s ease;
+	position: absolute;
+
 }
 
 .back {
-	margin: 0px;
-	top: 0px;
-	left: 0px;
-	transition: 0.5s ease;
+	-webkit-transform: rotateY(-180deg);
 }
 
-.front:hover {
-	opacity: 0;
+.portfolio-item {
+	-webkit-perspective: 600px;
 }
 
-.back:hover {
-	opacity: 0;
+.portfolio-item:hover .front {
+	-webkit-transform: rotateY(180deg);
 }
 
-.front:hover {
-	transform: rotateY( 180deg );
-}
-
-.back:hover {
-	transform: rotateY( 180deg );
+.portfolio-item:hover .back {
+	-webkit-transform: rotateY(0);
 }
